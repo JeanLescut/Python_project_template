@@ -1,0 +1,12 @@
+# Server Geneva :
+PYTHON_UTILS_PATH="/opt/anaconda3/envs/python_3.6.2/bin/python"
+PYTHON_PATH="/opt/anaconda3/envs/python36_project/bin/python"
+
+# Server chcxmqlarm003 : 
+PYTHON_UTILS_PATH="/root/miniconda3/envs/python36_utils/bin/python"
+PYTHON_PATH="/root/miniconda3/envs/python36_project/bin/python"
+
+# Server chcxarmrop001 :
+PYTHON_UTILS_PATH="/opt/miniconda3/envs/python36_utils/bin/python"
+PYTHON_PATH="/opt/miniconda3/envs/python36_project/bin/python"
+
