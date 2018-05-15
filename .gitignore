@@ -5,3 +5,4 @@ data/*
 *.swp
 nohup.out
 local.sh
+local.yml
