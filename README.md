@@ -21,6 +21,7 @@ git ... # Complete with git commands found on the Github pages...
 3. Adapt the code :
 
 - In main.sh, by default, we keep the last 100 `.log` files. Please change if it doesnt suit you.
+- In main.sh, you have as examples 3 scripts called. Please keep the technology that suits you and change the script name :)
 
 
 ## 2. Logging
