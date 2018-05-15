@@ -65,6 +65,29 @@ function log_status {
 }
 
 
+
+# get
+# get a value from the conf files :
+# Usage :
+# get "key"
+function get() {
+    # Try first on parameters file :
+    (cat "$param" | shyaml get-value $1) 2> /dev/null
+    if [ $? -eq 0 ]; then return 0; fi
+
+    # Try first on a potential conf file :
+    (cat "$conf" | shyaml get-value $1) 2> /dev/null
+    if [ $? -eq 0 ]; then return 0; fi
+
+    # then try on a potential local file :
+    (cat $ROOT"/etc/local.yml" | shyaml get-value $1) 2> /dev/null
+    if [ $? -eq 0 ]; then return 0; fi
+
+    # Then try on the default :
+    cat $ROOT"/etc/default.yml" | shyaml get-value $1
+}
+
+
 # send_email
 # Usage : subject="Test" path_tmpfile_email="/tmp/email.txt" send_email
 function send_email {

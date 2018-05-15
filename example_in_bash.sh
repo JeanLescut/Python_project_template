@@ -1,10 +1,11 @@
-source $ROOT"/etc/default.sh"
-if [ -f "$ROOT/etc/local.sh" ]; then source $ROOT"/etc/local.sh"; fi
-if [ -n "$conf" ]; then source $ROOT"/etc/"$conf; fi
+UTILS_PATH=$ROOT/bash_utils
 source $UTILS_PATH/main.sh
 
+#####################################################
+# Modify anything below this line : This is your script :
 ######################################################
 
+log "----------- TESTING LOGGING ----------" "INFO"
 log "testing log in TRACE level : the color is quite faded..." "TRACE"
 log "testing log in DEBUG level : This is a bit more visible..." "DEBUG"
 log "testing log in INFO level : This is clearly visible, and help structuring the logs visually" "INFO"
@@ -16,10 +17,12 @@ log "testing syntax highlighting : SUCceSs, yes, no, warn, YES, non-important te
 log "testing syntax highlighting : SUCceSs, yes, no, warn, YES, non-important text, critical, Abort, error, end of the test." "ERROR"
 log "testing syntax highlighting : SUCceSs, yes, no, warn, YES, non-important text, critical, Abort, error, end of the test." "CRITICAL"
 log "testing syntax highlighting : SUCceSs, yes, no, warn, YES, non-important text, critical, Abort, error, end of the test." "Foobar!"
-echo ""
-log "Here are the variable loaded : " "TRACE"
-declare -p | grep VARIABLE
 
-echo -e "\n\n"
-log "PYTHON PART : " "INFO"
-$PYTHON_PATH $ROOT/pipeline.py
+
+
+echo -e "\n"
+log "----------- TESTING VARIABLES ---------" "INFO"
+name=$(get "name")
+log "name=$name" "DEBUG"
+
+

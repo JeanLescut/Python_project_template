@@ -1,0 +1,5 @@
+name: "This is the prod name"
+subvalue:
+    how-many: 2.5
+    maintainer: "SHPM Team"
+subvalue.how-much: 1.6
