@@ -76,5 +76,6 @@ git checkout develop # DO NOT FORGET THAT.
 ## 3. To run, to test :
 
 In dev : `./main.sh`
+
 Ad-hoc, in prod (to test dangerously) : `conf="prod.sh" ./main.sh`
 
