@@ -42,8 +42,15 @@ sudo /opt/miniconda3/envs/python36_controltower/bin/python -m pip install pymssq
 
 
 
+## 2. To run, to test :
 
-## 2. Deploying a change :
+In dev : `./main.sh`
+
+Ad-hoc, in prod (to test dangerously) : `conf="prod.sh" ./main.sh`
+
+
+
+## 3. Commiting a change ( = saving your change on Github, for versioning) :
 
 #### If working using Jupyter :
 > 1. make sure you dont open the same notebook in 2 different tabs, otherwise the changes of one can overwrite the changes made through the second...
@@ -62,6 +69,7 @@ git add --all
 git commit -m 'foobar'
 ```
 
+## 4. Deploying ( = pushing your changes into production)
 Merge :
 Following the good practice https://stackoverflow.com/questions/14168677/merge-development-branch-with-master :
 Merge first master into develop, then develop into master without conflicts :
@@ -73,9 +81,4 @@ git checkout develop # DO NOT FORGET THAT.
 ```
 
 
-## 3. To run, to test :
-
-In dev : `./main.sh`
-
-Ad-hoc, in prod (to test dangerously) : `conf="prod.sh" ./main.sh`
 
