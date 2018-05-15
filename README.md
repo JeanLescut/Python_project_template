@@ -41,7 +41,7 @@ sudo /opt/miniconda3/envs/python36_controltower/bin/python -m pip install pymssq
 ```
 
 
-## 1. Logging
+## 2. Logging
 
 ### Bash
 - A logging library has already been implemented. Please see source code for documentation. It supports log level, and level/keywords highlighting. Please always use this function while logging in bash.
@@ -60,12 +60,12 @@ sudo /opt/miniconda3/envs/python36_controltower/bin/python -m pip install pymssq
 
 
 
-## 2. Managing Credentials :
+## 3. Managing Credentials :
 - For authenticating to external service (SQL, Hive, ...etc), please use the **user 's-shpm' rather than your own** 
 - Please **keep the 'reading credentials' cell as it is**. Do not hardcode any path to any other file, or hard-code credentials yourself. the reason is that all system credentials should be in a single location, so when they change, a single change on the machine corrects all project at once
 - If you need other system credentials, please add them under `/usr/local/share/credentials/`
 
-## 3. Managing versioning :
+## 4. Managing versioning :
 - By convention, *master* branch is the Production branch. Every deployment should correspond to a commit on that branch
 - By convention, *develop* is the Development branch, meaning the branch used to share advancements in the project without any deployment
 - Please **configure *develop* branch as the default branch**, which prevents to work directly on master by mistake.
@@ -75,7 +75,7 @@ sudo /opt/miniconda3/envs/python36_controltower/bin/python -m pip install pymssq
   2. You dont have to do anything, the filter detects all `.ipynb` files are apply the filter
   3. In case of very large cell output, you dont overload the git project.
 
-## 4. Managing Dev/Prod variables :
+## 5. Managing Dev/Prod variables :
 
 All conf file are written in bash, as the project could be (or become) an hybrid Bash/Python project. And it's easier to parse bash conf in python than a python conf (yaml, json...) in bash.
 
@@ -107,7 +107,7 @@ Each projects are 3 kind of conf variable :
 > - The solution 2 would have mean to lose all prod/int variables/values in case of server crash.
 > - Having this level of flexibility ensures perinity in the future.
 
-## 5. Coding : good practice :
+## 6. Coding : good practice :
 - Every project are deployed under `/opt/`, meaning:
    1. log are under `/opt/PROJECT/log/`
    2. binaries are under `/opt/PROJECT/bin/`
