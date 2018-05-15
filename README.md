@@ -5,24 +5,34 @@ Please use this framework (and follow these guidelines) for any project you inte
 
 1. First, create a repo in Github. Stay on the page with the git commands
 
-2. On your local dev environment (example : Geneva) :
+2. On your local dev environment (example : Geneva), clone the framework :
 ```
 git clone https://ewegithub.sb.karmalab.net/ARM-Pricing/Framework_projects.git
 rm -rf ./Framework_projects/.git
 mv ./Framework_projects/README_framework.md ./Framework_projects/README.md
 mv ./Framework_projects ./Project # Please use the name of your project
 cd ./Project
+```
+- In main.sh, by default, we keep the last 100 `.log` files. Please change if it doesnt suit you.
+- In main.sh, you have as examples 3 scripts called. Please keep the technology that suits you and change the script name :)
+- Don't forget to commit and push
+
+Complete with git commands found on the Github pages :
+```
 git init
 git add --all
 git commit -m "First commit"
-git ... # Complete with git commands found on the Github pages...
+git ...
 ```
 
-3. Adapt the code :
+Create a develop branch :
+```
+git checkout -B develop
+git push origin develop
+```
 
-- In main.sh, by default, we keep the last 100 `.log` files. Please change if it doesnt suit you.
-- In main.sh, you have as examples 3 scripts called. Please keep the technology that suits you and change the script name :)
-
+4. On github, click "Next" and all the framework should appear.
+5. Change the default branch for 'develop'
 
 ## 2. Logging
 
