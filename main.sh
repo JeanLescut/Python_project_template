@@ -37,8 +37,8 @@ source $ROOT/example_in_bash.sh 2>&1 | tee -a $log_file
 
 # An example in Python :
 echo -e "\n\n\n########## AN EXAMPLE IN PYTHON : #########"
-$PYTHON_PATH "$ROOT/example_in_python.py" "$param_yaml" "$conf" 2>&1 | tee -a $log_file
+$ROOT/bin/python "$ROOT/example_in_python.py" "$param_yaml" "$conf" 2>&1 | tee -a $log_file
 
 # An example in R :
 echo -e "\n\n\n########## AN EXAMPLE IN R : #########"
-$R_PATH "$ROOT/example_in_R.R" "$param_yaml" "$conf" 2>&1 | tee -a $log_file
+$ROOT/bin/R "$ROOT/example_in_R.R" "$param_yaml" "$conf" 2>&1 | tee -a $log_file

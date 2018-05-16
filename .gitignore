@@ -1,8 +1,7 @@
 .ipynb_checkpoints
+bin/*
 log/*
 data/*
 *.log
 *.swp
 nohup.out
-local.sh
-local.yml
