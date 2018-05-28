@@ -22,7 +22,12 @@ Complete with git commands found on the Github pages :
 git init
 git add --all
 git commit -m "First commit"
-git ...
+```
+
+Copy-paste the 2 lines present on the Github page :
+```
+git remote add origin ...
+git push -u origin master
 ```
 
 Create a develop branch :
@@ -31,7 +36,7 @@ git checkout -B develop
 git push origin develop
 ```
 
-4. On github, click "Next" and all the framework should appear.
+4. On github, click on your project name (top of the page) and all the framework should appear.
 5. Change the default branch for 'develop'
 
 ## 2. Logging
