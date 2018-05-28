@@ -1,30 +1,26 @@
-# Project X
+# Project X (PLEASE ADAPT)
 
 ## 1. Creating the project and Deploying for the first time :
+
+### 1.1 Clone the repo :
 
 - Deploy the code under `/opt/` :
 ```
 cd /opt/
-sudo git clone ...
-sudo chown -R $(whoami)":"$(id -gn) ./Project 
+sudo git clone ... # TODO : PLEASE ADAPT
+sudo chown -R $(whoami)":"$(id -gn) ./Project # TODO : PLEASE ADAPT
 cd ./Project
 # git checkout master # Only in prod
 ```
 
-- Copy `local.sh.template` into your `local.sh` and adapt it for your local envinroment 
+### 1.2 Configure the local symlinks
 ```
-cp ./etc/local.sh.template ./etc/local.sh
-vim ./etc/local.sh
+cp -R ./bin_template ./bin
+ll ./bin/
+ln -sf /opt/miniconda3/envs/python36_controltower/bin/python ./bin/python # TODO : PLEASE ADAPT
 ```
 
-- If the project is meant to be run regularly, add a line in `/etc/crontab`. Example :
-```
-00 03 *  *  *  root cd /opt/Project/; git pull; ./main.sh
-```
-Or in prod :
-```
-00 03 *  *  *  root cd /opt/Project/; git pull; conf="prod.yml" ./main.sh
-```
+### 1.3 Install dependencies :
 
 #### If you bash in your project please add this :
 - Make sure the python_utils conda envs is properly installed on the machine. If not (brand new server for example), please follow instructions here :
@@ -36,10 +32,19 @@ https://ewegithub.sb.karmalab.net/jlescutmuller/Dev_init_scripts/blob/master/01_
 
 - Install the dependencies of your project. Example :
 ```
-sudo /opt/miniconda3/envs/python36_controltower/bin/python -m pip install paramiko
-sudo /opt/miniconda3/envs/python36_controltower/bin/python -m pip install pymssql
+sudo ./bin/python -m pip install paramiko pandas pymssql
 ```
 
+### 1.4 In Inte/Prod only : Add Cron Job
+
+- If the project is meant to be run regularly, add a line in `/etc/crontab`. Example :
+```
+00 03 *  *  *  root cd /opt/Project/; git pull; ./main.sh
+```
+Or in prod :
+```
+00 03 *  *  *  root cd /opt/Project/; git pull; conf="prod.yml" ./main.sh
+```
 
 
 ## 2. To run, to test :
@@ -58,7 +63,7 @@ Ad-hoc, in prod (to test dangerously) : `conf="prod.sh" ./main.sh`
 > 3. A .ipynb is never run in production, as a lot of unexpected behavior could happen. Instead, you can generate a .py file for it using :
 > ```
 > # From the Geneva server :
-> /opt/anaconda3/envs/python_3.6.2/bin/ipython nbconvert ./*.ipynb --to script
+> find . -iregex ".*\.ipynb" | grep -v "\.ipynb_checkpoints" | xargs -I{} -d'\n' /opt/anaconda3/envs/python_3.6.2/bin/jupyter nbconvert --to python {}
 > ```
 
 
@@ -67,6 +72,7 @@ Review and commit :
 git status
 git add --all
 git commit -m 'foobar'
+git push
 ```
 
 ## 4. Deploying ( = pushing your changes into production)
@@ -77,8 +83,6 @@ Merge first master into develop, then develop into master without conflicts :
 git merge master # resolve any merge conflicts if there are any
 git checkout master
 git merge develop # there won't be any conflicts now
+git push
 git checkout develop # DO NOT FORGET THAT.
 ```
-
-
-
