@@ -36,13 +36,15 @@ def conf(argv) :
     return conf
 
 
-# In[ ]:
+# In[1]:
 
 
 def creds() :
     log.info('Loading credentials...')
-    with open('/usr/local/share/credentials/AD','r') as creds_file:
-        creds = dict([keyval.split('=') for keyval in creds_file.read().strip().split('\n')])
+    creds = {}
+    for techno in ['AD', 'HiveServer2'] :
+        with open('/usr/local/share/credentials/'+techno,'r') as creds_file:
+            creds[techno] = dict([keyval.split('=') for keyval in creds_file.read().strip().split('\n')])
     log.info('Loading credentials... Done !')
     log.warn('PLEASE NEVER PRINT CREDENTIALS IN THE LOG, OR IN A JUPYTER CELL OUTPUT')
     return creds
