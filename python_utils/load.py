@@ -27,7 +27,10 @@ def conf(argv) :
     conf = load_conf_file('./etc/default.yml')
     conf.update(load_conf_file('./etc/local.yml'))
 
-    if 'ipykernel_launcher.py' != argv[0].split('/')[-1] : # If not run in Jupyter :
+    if 'ipykernel_launcher.py' == argv[0].split('/')[-1] : # If run in Jupyter :
+        conf['ROOT'] = '.'
+        
+    else : # if not from Jupyter notebook :
         for arg in argv[1:] : # For every argument (conf_yaml, param_yaml, etc...)
             conf.update(load_conf_file(arg))
             
@@ -36,7 +39,7 @@ def conf(argv) :
     return conf
 
 
-# In[1]:
+# In[ ]:
 
 
 def creds() :

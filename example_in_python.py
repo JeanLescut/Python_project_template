@@ -1,13 +1,13 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 import logging, sys
 
 
-# In[2]:
+# In[ ]:
 
 
 logging.basicConfig(stream=sys.stdout,
@@ -19,10 +19,10 @@ log.debug(f'Python version = {str(sys.version)}')
 log.debug(f'argv[0] is = {str(sys.argv[0])}')
 
 
-# In[3]:
+# In[ ]:
 
 
-sys.path.append('.')
+#sys.path.append('.')
 from python_utils import email, sql, load
 logging.getLogger('python_utils').setLevel(logging.DEBUG)
 conf = load.conf(sys.argv)
@@ -50,7 +50,7 @@ result = stdout.readline().strip()
 log.info(f'I am {result} !')
 
 
-# In[5]:
+# In[ ]:
 
 
 import pymssql
@@ -74,7 +74,7 @@ log.debug(cursor.fetchall())
 connection.close()
 
 
-# In[6]:
+# In[ ]:
 
 
 from impala.dbapi import connect 
