@@ -15,15 +15,14 @@ logging.basicConfig(stream=sys.stdout,
                         level=logging.WARN)
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
-log.debug(f'Python version = {str(sys.version)}')
-log.debug(f'argv[0] is = {str(sys.argv[0])}')
+log.debug(f'Python version = {sys.version}')
+log.debug(f'argv is = {sys.argv}')
 
 
 # In[ ]:
 
 
-#sys.path.append('.')
-from python_utils import email, sql, load
+from python_utils import sql, load ,email2
 logging.getLogger('python_utils').setLevel(logging.DEBUG)
 conf = load.conf(sys.argv)
 creds = load.creds()

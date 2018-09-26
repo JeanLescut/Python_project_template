@@ -13,27 +13,43 @@ log.debug('Module loaded')
 # In[ ]:
 
 
-def conf(argv) :
-    log.info('Loading configuration files...')
-
-    def load_conf_file(path_conf) :
-        log.debug(f'Loading conf file {path_conf} ...')
-        try :
-            return yaml.safe_load(open(path_conf, 'r'))
-        except FileNotFoundError :
-            log.warning(f'The path {path_conf} does not correspond to any file !')
-            return dict()
-
-    conf = load_conf_file('./etc/default.yml')
-    conf.update(load_conf_file('./etc/local.yml'))
-
-    if 'ipykernel_launcher.py' == argv[0].split('/')[-1] : # If run in Jupyter :
-        conf['ROOT'] = '.'
+def load_conf_file(path_conf) :
+    log.debug(f'Loading conf file {path_conf} ...')
+    try :
+        return yaml.safe_load(open(path_conf, 'r'))
+    except FileNotFoundError :
+        log.warning(f'The path {path_conf} does not correspond to any file !')
+        return dict()
         
-    else : # if not from Jupyter notebook :
+def get_ROOT(argv, jupyter_ROOT, script_ROOT) :
+    # If run in Jupyter :
+    if 'ipykernel_launcher.py' == argv[0].split('/')[-1] : 
+        if jupyter_ROOT is not None :
+            return jupyter_ROOT
+        else :
+            return '.'
+    else :
+        if script_ROOT is not None :
+            return script_ROOT
+        for yaml_path in argv[1:] :
+            d = load_conf_file(yaml_path)
+            if 'ROOT' in d.keys() :
+                return d['ROOT']
+        return os.path.dirname(argv[0]) # This shouldn't happen,as ROOT is always defined in main.sh
+
+def conf(argv, jupyter_ROOT=None, script_ROOT=None) :
+    log.info('Loading configuration files...')
+    conf = {}
+    
+    ROOT = get_ROOT(argv, jupyter_ROOT, script_ROOT)
+    if 'ipykernel_launcher.py' != argv[0].split('/')[-1] : # If run in Jupyter :
         for arg in argv[1:] : # For every argument (conf_yaml, param_yaml, etc...)
             conf.update(load_conf_file(arg))
-            
+
+    conf = load_conf_file(f'{ROOT}/etc/default.yml')
+    conf.update(load_conf_file(f'{ROOT}/etc/local.yml'))
+    conf['ROOT'] = ROOT
+          
     log.info('Loading configuration files... Done !')
     log.debug(f'conf = {conf}')
     return conf
