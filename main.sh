@@ -1,7 +1,14 @@
 #!/usr/bin/bash
 
 # As a reminder, all path should be written in relative from $ROOT :
-ROOT=$(dirname $(realpath $0))
+# ROOT is either passed to main.sh (in case of Framework project) or defined as the location of this file :
+ROOT_base=$(dirname $(realpath $0))
+if [ -n "$ROOT_suffix" ]; then
+    ROOT="$ROOT_base$ROOT_suffix"
+else
+    ROOT=$ROOT_base
+fi
+
 log_folder=$ROOT"/log"
 log_file=$log_folder"/"`date +%Y-%m-%d_%H%M%S`".log" 
 
@@ -24,8 +31,6 @@ fi
 mkdir -p $log_folder
 # To avoid the folder to 'explode', delete everything but the last 100 log files :
 ls -t "$ROOT/log/" | tail -n +101 | xargs -I% sh -c "rm $ROOT/log/%"
-# Loading configuration file for the whole
-if [ -f "$ROOT/etc/local.sh" ]; then source $ROOT"/etc/local.sh"; fi
 
 #####################################################################
 ###### PLEASE CHNAGE THE FOLLOWING DEPENDING ON YOUR SCRIPT #########
