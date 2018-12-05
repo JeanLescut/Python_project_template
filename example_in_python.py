@@ -22,7 +22,7 @@ log.debug(f'argv is = {sys.argv}')
 # In[ ]:
 
 
-from python_utils import sql, load ,email2
+from python_utils import load, email2, connections as c
 logging.getLogger('python_utils').setLevel(logging.DEBUG)
 conf = load.conf(sys.argv)
 creds = load.creds()
