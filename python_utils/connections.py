@@ -19,7 +19,7 @@ log.debug('Module loaded')
 # sql_query(query, creds)
 # ```
 
-# In[3]:
+# In[ ]:
 
 
 def get_sql_conn(creds, server='CHCXSQLARMDM008', db='Pricing'):
@@ -32,7 +32,7 @@ def get_sql_conn(creds, server='CHCXSQLARMDM008', db='Pricing'):
                            autocommit=True)
 
 
-# In[4]:
+# In[ ]:
 
 
 def sql_query(query, creds, method='execute', server='CHCXSQLARMDM008', db='Pricing'):
