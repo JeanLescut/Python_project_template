@@ -12,14 +12,9 @@ fi
 log_folder=$ROOT"/log"
 log_file=$log_folder"/"`date +%Y-%m-%d_%H%M%S`".log" 
 
-# Passing these global variable into the param yaml file, so a R or a Python script could call them :
-if [ -z "$param_yaml" ]; then
-    param_yaml="/tmp/"$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)".yml"
-    touch $param_yaml
-fi
-echo "ROOT: $ROOT" >> $param_yaml
-echo "log_folder: $log_folder" >> $param_yaml
-echo "log_file: $log_file" >> $param_yaml
+# Passing these global variable into the param json file, so a R/Python script could access them :
+tmp_json_path="/tmp/"$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)".json"
+echo '{"ROOT": "'$ROOT'", "log_folder": "'$log_folder'", "log_file": "'$log_file'"}' > $tmp_json_path
 
 # Allowing for passing relative path as conf file :
 # If a conf argument is passed but it does not correspond to any absolute path, pass it to relative :
@@ -27,7 +22,7 @@ if [ -n "$conf" ] && [ ! -f "$conf" ]; then
      conf=$ROOT"/etc/"$conf
 fi
 
-# If it doesn't exist, create log_folder
+# Create log_folder if needed :
 mkdir -p $log_folder
 # To avoid the folder to 'explode', delete everything but the last 100 log files :
 ls -t "$ROOT/log/" | tail -n +101 | xargs -I% sh -c "rm $ROOT/log/%"
@@ -42,8 +37,8 @@ source $ROOT/example_in_bash.sh 2>&1 | tee -a $log_file
 
 # An example in Python :
 echo -e "\n\n\n########## AN EXAMPLE IN PYTHON : #########"
-$ROOT/bin/python "$ROOT/example_in_python.py" "$param_yaml" "$conf" 2>&1 | tee -a $log_file
+$ROOT/bin/python "$ROOT/example_in_python.py" "$tmp_json_path" "$conf" 2>&1 | tee -a $log_file
 
 # An example in R :
 echo -e "\n\n\n########## AN EXAMPLE IN R : #########"
-$ROOT/bin/R "$ROOT/example_in_R.R" "$param_yaml" "$conf" 2>&1 | tee -a $log_file
+$ROOT/bin/R "$ROOT/example_in_R.R" "$tmp_json_path" "$conf" 2>&1 | tee -a $log_file
