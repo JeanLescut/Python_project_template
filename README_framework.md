@@ -11,7 +11,26 @@ sudo git clone ... # &#x1F534; TODO: PLEASE ADAPT
 sudo chown -R $(whoami)":"$(id -gn) ./Project # &#x1F534; TODO: PLEASE ADAPT 
 cd ./Project # &#x1F534; TODO: PLEASE ADAPT 
 # git checkout master # Only in prod
+
+<pre>
+sample <b>sample</b> sample
+</pre>
+
 ```
+<pre>
+sample <b>sample</b> sample
+</pre>
+
+<pre><code>
+cd /opt/
+sudo git clone ... # &#x1F534; TODO: PLEASE ADAPT 
+sudo chown -R $(whoami)":"$(id -gn) ./Project # &#x1F534; TODO: PLEASE ADAPT 
+cd ./Project # &#x1F534; TODO: PLEASE ADAPT 
+# git checkout master # Only in prod
+</code></pre>
+
+
+
 
 ### 1.2 (If the project is using Python) Install Python Environment
 - All project (or group of projects) run on their own Conda environment. This allows to fix not only python version but also specific version for each python module, that could be different from one project to another. Thus, any change of the machine, on any other project can NOT affect the current project. To create an environment, follow precise instructions here :
