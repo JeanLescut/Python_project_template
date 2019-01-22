@@ -13,26 +13,20 @@ cd ./Project
 # git checkout master # Only in prod
 ```
 
-### 1.2 Configure the local symlinks
-```
-cp -R ./bin_template ./bin
-ll ./bin/
-ln -sf /opt/miniconda3/envs/python36_controltower/bin/python ./bin/python # TODO : PLEASE ADAPT
-```
-
-### 1.3 Install dependencies :
-
-#### If you use bash in your project please add this :
-- Make sure the python_utils conda envs is properly installed on the machine. If not (brand new server for example), please follow instructions here :
-https://ewegithub.sb.karmalab.net/jlescutmuller/Dev_init_scripts/blob/master/01_Create_new_conda_env_and_kernel.sh
-
-#### If you use Python :
+### 1.2 (If the project is using Python) Install Python Environment
 - All project (or group of projects) run on their own Conda environment. This allows to fix not only python version but also specific version for each python module, that could be different from one project to another. Thus, any change of the machine, on any other project can NOT affect the current project. To create an environment, follow precise instructions here :
 https://ewegithub.sb.karmalab.net/jlescutmuller/Dev_init_scripts/blob/master/01_Create_new_conda_env_and_kernel.sh
 
 - Install the dependencies of your project. Example :
 ```
 sudo ./bin/python -m pip install paramiko pandas pymssql
+```
+
+### 1.3 Configure the local symlinks
+```
+cp -R ./bin_template ./bin
+ll ./bin/
+ln -sf /opt/miniconda3/envs/python36_controltower/bin/python ./bin/python # TODO : PLEASE ADAPT
 ```
 
 ### 1.4 In Inte/Prod only : Add Cron Job
