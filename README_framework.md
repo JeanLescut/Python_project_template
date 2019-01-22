@@ -22,7 +22,7 @@ ln -sf /opt/miniconda3/envs/python36_controltower/bin/python ./bin/python # TODO
 
 ### 1.3 Install dependencies :
 
-#### If you bash in your project please add this :
+#### If you use bash in your project please add this :
 - Make sure the python_utils conda envs is properly installed on the machine. If not (brand new server for example), please follow instructions here :
 https://ewegithub.sb.karmalab.net/jlescutmuller/Dev_init_scripts/blob/master/01_Create_new_conda_env_and_kernel.sh
 
@@ -43,7 +43,7 @@ sudo ./bin/python -m pip install paramiko pandas pymssql
 ```
 Or in prod :
 ```
-00 03 *  *  *  root cd /opt/Project/; git pull; conf="prod.yml" ./main.sh
+00 03 *  *  *  root cd /opt/Project/; git pull; conf="prod.json" ./main.sh
 ```
 
 
