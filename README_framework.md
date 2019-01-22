@@ -45,7 +45,7 @@ Or in prod :
 
 In dev : `./main.sh`
 
-Ad-hoc, in prod (to test dangerously) : `conf="prod.sh" ./main.sh`
+Ad-hoc, in prod : `conf="prod.sh" ./main.sh` (this is dangerous, as it will potentially update prod data) 
 
 
 
