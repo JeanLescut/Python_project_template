@@ -7,13 +7,12 @@
 - Deploy the code under `/opt/` :
 ```
 cd /opt/
-sudo git clone ... # TODO : PLEASE ADAPT
-sudo chown -R $(whoami)":"$(id -gn) ./Project # TODO : PLEASE ADAPT
-cd ./Project
+sudo git clone ... # &#x1F534; TODO: PLEASE ADAPT 
+sudo chown -R $(whoami)":"$(id -gn) ./Project # &#x1F534; TODO: PLEASE ADAPT 
+cd ./Project # &#x1F534; TODO: PLEASE ADAPT 
 # git checkout master # Only in prod
 ```
 
-<p>Some Markdown text with <span style="color:blue">some <em>blue</em> text</span>.</p>
 &#x1F534;
 
 
@@ -23,25 +22,25 @@ https://ewegithub.sb.karmalab.net/jlescutmuller/Dev_init_scripts/blob/master/01_
 
 - Install the dependencies of your project. Example :
 ```
-sudo ./bin/python -m pip install paramiko pandas pymssql
+sudo ./bin/python -m pip install paramiko pandas pymssql # &#x1F534; TODO: PLEASE ADAPT 
 ```
 
 ### 1.3 Configure the local symlinks
 ```
 cp -R ./bin_template ./bin
 ll ./bin/
-ln -sf /opt/miniconda3/envs/python36_controltower/bin/python ./bin/python # TODO : PLEASE ADAPT
+ln -sf /opt/miniconda3/envs/python36_controltower/bin/python ./bin/python # &#x1F534; TODO: PLEASE ADAPT 
 ```
 
 ### 1.4 In Inte/Prod only : Add Cron Job
 
 - If the project is meant to be run regularly, add a line in `/etc/crontab`. Example :
 ```
-00 03 *  *  *  root cd /opt/Project/; git pull; ./main.sh
+00 03 *  *  *  root cd /opt/Project/; git pull; ./main.sh # &#x1F534; TODO: PLEASE ADAPT 
 ```
 Or in prod :
 ```
-00 03 *  *  *  root cd /opt/Project/; git pull; conf="prod.json" ./main.sh
+00 03 *  *  *  root cd /opt/Project/; git pull; conf="prod.json" ./main.sh # &#x1F534; TODO: PLEASE ADAPT 
 ```
 
 
