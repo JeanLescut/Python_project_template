@@ -1,6 +1,6 @@
-# Project X (PLEASE ADAPT)
+# Project X (&#x1F534; PLEASE ADAPT)
 
-## 1. Creating the project and Deploying for the first time :
+## 1. Creating  the project and Deploying for the first time :
 
 ### 1.1 Clone the repo :
 
