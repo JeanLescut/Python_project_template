@@ -5,22 +5,6 @@
 ### 1.1 Clone the repo :
 
 - Deploy the code under `/opt/` :
-```
-cd /opt/
-sudo git clone ... # &#x1F534; TODO: PLEASE ADAPT 
-sudo chown -R $(whoami)":"$(id -gn) ./Project # &#x1F534; TODO: PLEASE ADAPT 
-cd ./Project # &#x1F534; TODO: PLEASE ADAPT 
-# git checkout master # Only in prod
-
-<pre>
-sample <b>sample</b> sample
-</pre>
-
-```
-<pre>
-sample <b>sample</b> sample
-</pre>
-
 <pre><code>
 cd /opt/
 sudo git clone ... # &#x1F534; TODO: PLEASE ADAPT 
@@ -37,27 +21,28 @@ cd ./Project # &#x1F534; TODO: PLEASE ADAPT
 https://ewegithub.sb.karmalab.net/jlescutmuller/Dev_init_scripts/blob/master/01_Create_new_conda_env_and_kernel.sh
 
 - Install the dependencies of your project. Example :
-```
+<pre><code>
 sudo ./bin/python -m pip install paramiko pandas pymssql # &#x1F534; TODO: PLEASE ADAPT 
-```
+</code></pre>
 
 ### 1.3 Configure the local symlinks
-```
+<pre><code>
 cp -R ./bin_template ./bin
 ll ./bin/
 ln -sf /opt/miniconda3/envs/python36_controltower/bin/python ./bin/python # &#x1F534; TODO: PLEASE ADAPT 
-```
+</code></pre>
+
 
 ### 1.4 In Inte/Prod only : Add Cron Job
 
 - If the project is meant to be run regularly, add a line in `/etc/crontab`. Example :
-```
+<pre><code>
 00 03 *  *  *  root cd /opt/Project/; git pull; ./main.sh # &#x1F534; TODO: PLEASE ADAPT 
-```
+</code></pre>
 Or in prod :
-```
+<pre><code>
 00 03 *  *  *  root cd /opt/Project/; git pull; conf="prod.json" ./main.sh # &#x1F534; TODO: PLEASE ADAPT 
-```
+</code></pre>
 
 
 ## 2. To run, to test :
