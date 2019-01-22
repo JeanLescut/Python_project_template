@@ -13,9 +13,6 @@ cd ./Project # &#x1F534; TODO: PLEASE ADAPT
 # git checkout master # Only in prod
 ```
 
-&#x1F534;
-
-
 ### 1.2 (If the project is using Python) Install Python Environment
 - All project (or group of projects) run on their own Conda environment. This allows to fix not only python version but also specific version for each python module, that could be different from one project to another. Thus, any change of the machine, on any other project can NOT affect the current project. To create an environment, follow precise instructions here :
 https://ewegithub.sb.karmalab.net/jlescutmuller/Dev_init_scripts/blob/master/01_Create_new_conda_env_and_kernel.sh
