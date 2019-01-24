@@ -1,57 +1,55 @@
-# Project X (PLEASE ADAPT)
+# Project X (&#x1F534; PLEASE ADAPT)
 
-## 1. Creating the project and Deploying for the first time :
+## 1. Creating  the project and Deploying for the first time :
 
 ### 1.1 Clone the repo :
 
 - Deploy the code under `/opt/` :
-```
+<pre><code>
 cd /opt/
-sudo git clone ... # TODO : PLEASE ADAPT
-sudo chown -R $(whoami)":"$(id -gn) ./Project # TODO : PLEASE ADAPT
-cd ./Project
+sudo git clone ... # &#x1F534; TODO: PLEASE ADAPT 
+sudo chown -R $(whoami)":"$(id -gn) ./Project # &#x1F534; TODO: PLEASE ADAPT 
+cd ./Project # &#x1F534; TODO: PLEASE ADAPT 
 # git checkout master # Only in prod
-```
+</code></pre>
 
-### 1.2 Configure the local symlinks
-```
-cp -R ./bin_template ./bin
-ll ./bin/
-ln -sf /opt/miniconda3/envs/python36_controltower/bin/python ./bin/python # TODO : PLEASE ADAPT
-```
 
-### 1.3 Install dependencies :
 
-#### If you bash in your project please add this :
-- Make sure the python_utils conda envs is properly installed on the machine. If not (brand new server for example), please follow instructions here :
-https://ewegithub.sb.karmalab.net/jlescutmuller/Dev_init_scripts/blob/master/01_Create_new_conda_env_and_kernel.sh
 
-#### If you use Python :
+### 1.2 (If the project is using Python) Install Python Environment
 - All project (or group of projects) run on their own Conda environment. This allows to fix not only python version but also specific version for each python module, that could be different from one project to another. Thus, any change of the machine, on any other project can NOT affect the current project. To create an environment, follow precise instructions here :
 https://ewegithub.sb.karmalab.net/jlescutmuller/Dev_init_scripts/blob/master/01_Create_new_conda_env_and_kernel.sh
 
 - Install the dependencies of your project. Example :
-```
-sudo ./bin/python -m pip install paramiko pandas pymssql
-```
+<pre><code>
+sudo ./bin/python -m pip install paramiko pandas pymssql # &#x1F534; TODO: PLEASE ADAPT 
+</code></pre>
+
+### 1.3 Configure the local symlinks
+<pre><code>
+cp -R ./bin_template ./bin
+ll ./bin/
+ln -sf /opt/miniconda3/envs/python36_controltower/bin/python ./bin/python # &#x1F534; TODO: PLEASE ADAPT 
+</code></pre>
+
 
 ### 1.4 In Inte/Prod only : Add Cron Job
 
 - If the project is meant to be run regularly, add a line in `/etc/crontab`. Example :
-```
-00 03 *  *  *  root cd /opt/Project/; git pull; ./main.sh
-```
+<pre><code>
+00 03 *  *  *  root cd /opt/Project/; git pull; ./main.sh # &#x1F534; TODO: PLEASE ADAPT 
+</code></pre>
 Or in prod :
-```
-00 03 *  *  *  root cd /opt/Project/; git pull; conf="prod.yml" ./main.sh
-```
+<pre><code>
+00 03 *  *  *  root cd /opt/Project/; git pull; conf="prod.json" ./main.sh # &#x1F534; TODO: PLEASE ADAPT 
+</code></pre>
 
 
 ## 2. To run, to test :
 
 In dev : `./main.sh`
 
-Ad-hoc, in prod (to test dangerously) : `conf="prod.sh" ./main.sh`
+Ad-hoc, in prod : `conf="prod.sh" ./main.sh` (this is dangerous, as it will potentially update prod data) 
 
 
 
