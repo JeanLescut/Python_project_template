@@ -27,6 +27,12 @@ mkdir -p $log_folder
 # To avoid the folder to 'explode', delete everything but the last 100 log files :
 ls -t "$ROOT/log/" | tail -n +101 | xargs -I% sh -c "rm $ROOT/log/%"
 
+# Git Logging : (when we'll read a log, we want to be sure and very precise about the version that run at that time)
+echo 'Git: hash of current commit (HEAD) :' | tee -a $log_file
+git rev-parse HEAD | tee -a $log_file
+echo 'Git: status :' | tee -a $log_file
+git status | tee -a $log_file
+
 #####################################################################
 ###### PLEASE CHNAGE THE FOLLOWING DEPENDING ON YOUR SCRIPT #########
 #####################################################################
