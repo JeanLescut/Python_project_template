@@ -3,6 +3,7 @@ __pycache__
 bin/*
 log/*
 data/*
+tmp/*
 *.log
 *.swp
 nohup.out
