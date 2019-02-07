@@ -25,8 +25,9 @@ git commit -m "First commit"
 ```
 
 Copy-paste the 2 lines present on the Github page :
+/!\ You should NOT use git@ewe... as a remote, as it will ask for ssh key instead of password
 ```
-git remote add origin ...
+git remote add origin https://
 git push -u origin master
 ```
 
