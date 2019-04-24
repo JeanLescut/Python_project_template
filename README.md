@@ -1,7 +1,7 @@
 # Framework for Python/Bash project 
 Please use this framework (and follow these guidelines) for any project you intend to write (Python, Bash, R, whatever)
 
-## 1. Why using a framework :
+## 1. Why using this framework :
 - Display a **standard Unix-like structure** for each project, **deployed in the same path** (`opt`). Hence the ramping-up time between projects is reduced, teammate can easily debug any projects ==> maintainance is made easier.
 - Provide **common Python, Bash, etc... libraries**, that can be shared across projects. ==> Improve cross-project collaboartion, and avoid redundancy between project codes.
 - Manage **environment-dependent parameters**, thus enforcing good practice, in a consistent manner across projects, and avoid Production accidents.
