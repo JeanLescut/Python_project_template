@@ -4,7 +4,7 @@ Please use this framework (and follow these guidelines) for any project you inte
 ## 1. Why using this framework :
 - Display a **standard Unix-like structure** for each project, **deployed in the same path** (`opt`). Hence the ramping-up time between projects is reduced, teammate can easily debug any projects ==> maintainance is made easier.
 - Provide **common Python, Bash, etc... libraries**, that can be shared across projects. ==> Improve cross-project collaboartion, and avoid redundancy between project codes.
-- Manage **environment-dependent parameters**, thus enforcing good practice, in a consistent manner across projects, and avoid Production accidents.
+- Manage **environment-dependent parameters**, thus enforcing good practice, in a consistent manner across projects, and avoid Production accidents. Also allows overwritting parameters at launch time :)
 - Manage **logging and archives** in the project, thus enforcing good practice, avoid "out-of-space" issues for any projects, and provide very good bases for debugging for any teammates.
 - Propose a standard **Readme.md** for all newly-created projects using this framework
 - Propose a way to **manage credentials** inside all projects, without publishing any passwords on git, and without complexifying the deployement process with a list of passwords to enter
