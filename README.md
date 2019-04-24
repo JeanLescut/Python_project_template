@@ -1,7 +1,18 @@
 # Framework for Python/Bash project 
 Please use this framework (and follow these guidelines) for any project you intend to write (Python, Bash, R, whatever)
 
-## 1. How to use this framework to create a new project :
+## 1. Why using a framework :
+- Display a **standard Unix-like structure** for each project, **deployed in the same path** (`opt`). Hence the ramping-up time between projects is reduced, teammate can easily debug any projects ==> maintainance is made easier.
+- Provide **common Python, Bash, etc... libraries**, that can be shared across projects. ==> Improve cross-project collaboartion, and avoid redundancy between project codes.
+- Manage **environment-dependent parameters**, thus enforcing good practice, in a consistent manner across projects, and avoid Production accidents.
+- Manage **logging and archives** in the project, thus enforcing good practice, avoid "out-of-space" issues for any projects, and provide very good bases for debugging for any teammates.
+- Propose a standard **Readme.md** for all newly-created projects using this framework
+- Propose a way to **manage credentials** inside all projects, without publishing any passwords on git, and without complexifying the deployement process with a list of passwords to enter
+- Implement a starting **.gitignore** file to make sure people don't unwillingly upload `.swp`, `.csv`, `.dat`, or any suspecious other file extensions
+- Propose a **git pre-commit hook, to automatically convert .ipynb to .py**, thus making sure only `.py` goes into production
+
+
+## 2. How to use this framework to create a new project :
 
 1. First, create a repo in Github. Stay on the page with the git commands
 
@@ -40,7 +51,7 @@ git push origin develop
 4. On github, click on your project name (top of the page) and all the framework should appear.
 5. Change the default branch for 'develop'
 
-## 2. Logging
+## 3. Logging
 
 ### Bash
 - A logging library has already been implemented. Please see source code for documentation. It supports log level, and level/keywords highlighting. Please always use this function while logging in bash.
@@ -58,13 +69,13 @@ git push origin develop
 - **Prefer to log to stdout (as shown in the example notebook)** than logging directly to a file. the redirection to a file happens in bash, which allows redirecting Exception (or stderr in general) as well.
 
 
-## 3. Managing Credentials :
+## 4. Managing Credentials :
 - For authenticating to external service (SQL, Hive, ...etc), please use the **user 's-shpm' rather than your own** 
 - Please **keep the 'reading credentials' cell as it is**. Do not hardcode any path to any other file, or hard-code credentials yourself. the reason is that all system credentials should be in a single location, so when they change, a single change on the machine corrects all project at once
 - If you need other system credentials, please add them under `/usr/local/share/credentials/`
 
 
-## 4. Managing versioning :
+## 5. Managing versioning :
 - By convention, *master* branch is the Production branch. Every deployment should correspond to a commit on that branch
 - By convention, *develop* is the Development branch, meaning the branch used to share advancements in the project without any deployment
 - Please **configure *develop* branch as the default branch**, which prevents to work directly on master by mistake.
@@ -75,7 +86,7 @@ git push origin develop
   3. In case of very large cell output, you dont overload the git project.
 
 
-## 5. Managing Dev/Prod variables :
+## 6. Managing Dev/Prod variables :
  
 Each projects are 4 kind of conf variable :
 
@@ -103,7 +114,7 @@ You have to create it yourself using `cp ./etc/local.sh.template ./etc/local.sh`
 > - The solution 2 would have mean to lose all prod/int variables/values in case of server crash.
 > - Having this level of flexibility ensures perinity in the future.
 
-## 6. Coding : good practice :
+## 7. Coding : good practice :
 - Every project are deployed under `/opt/`, meaning:
    1. log are under `/opt/PROJECT/log/`
    2. binaries are under `/opt/PROJECT/bin/`
