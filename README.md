@@ -5,10 +5,11 @@ Please use this framework (and follow these guidelines) for any project you inte
 - Display a **standard Unix-like structure** for each project, **deployed in the same path** (`opt`). Hence the ramping-up time between projects is reduced, teammate can easily debug any projects ==> maintainance is made easier.
 - Provide **common Python, Bash, etc... libraries**, that can be shared across projects. ==> Improve cross-project collaboartion, and avoid redundancy between project codes.
 - Manage **environment-dependent parameters**, thus enforcing good practice, in a consistent manner across projects, and avoid Production accidents. Also allows overwritting parameters at launch time :)
-- Manage **logging and archives** in the project, thus enforcing good practice, avoid "out-of-space" issues for any projects, and provide very good bases for debugging for any teammates.
+- Manage **logging** in the project: Enforce all runs to be logged (good practice), in a consistent way accross project (language-agnostic), and print the log systematically both in a file, and in the standard output. ==> povide very good bases for debugging by any teammates.
+- **Automatically archive** old logs, avoiding "out-of-space" issues for any projects.
 - Propose a standard **Readme.md** for all newly-created projects using this framework
 - Propose a way to **manage credentials** inside all projects, without publishing any passwords on git, and without complexifying the deployement process with a list of passwords to enter
-- Implement a starting **.gitignore** file to make sure people don't unwillingly version `.swp`, `.csv`, `.dat`, or any suspecious other file extensions
+- Implement a starting **.gitignore** file to make sure people don't unwillingly version `.swp`, `.csv`, `.dat`, `.log` or any suspecious other file extensions, or file in suspecious path like `./data/...` or `./tmp/...`
 - Propose a **git pre-commit hook, to automatically convert .ipynb to .py**, thus making sure only `.py` goes into production
 
 
