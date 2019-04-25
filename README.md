@@ -22,7 +22,7 @@ Please use this framework (and follow these guidelines) for any project you inte
 
 2. On your local dev environment (example : Geneva), clone the framework :
 ```
-git clone https://ewegithub.sb.karmalab.net/ARM-Pricing/Framework_projects.git
+git clone https://github.expedia.biz/LPS/Framework_projects.git
 rm -rf ./Framework_projects/.git
 mv ./Framework_projects/README_framework.md ./Framework_projects/README.md
 mv ./Framework_projects ./Project # Please use the name of your project
