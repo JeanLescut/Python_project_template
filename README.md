@@ -8,7 +8,7 @@ Please use this framework (and follow these guidelines) for any project you inte
 - Manage **logging and archives** in the project, thus enforcing good practice, avoid "out-of-space" issues for any projects, and provide very good bases for debugging for any teammates.
 - Propose a standard **Readme.md** for all newly-created projects using this framework
 - Propose a way to **manage credentials** inside all projects, without publishing any passwords on git, and without complexifying the deployement process with a list of passwords to enter
-- Implement a starting **.gitignore** file to make sure people don't unwillingly upload `.swp`, `.csv`, `.dat`, or any suspecious other file extensions
+- Implement a starting **.gitignore** file to make sure people don't unwillingly version `.swp`, `.csv`, `.dat`, or any suspecious other file extensions
 - Propose a **git pre-commit hook, to automatically convert .ipynb to .py**, thus making sure only `.py` goes into production
 
 
