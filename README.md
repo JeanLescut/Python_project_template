@@ -10,7 +10,9 @@ Please use this framework (and follow these guidelines) for any project you inte
 - Propose a standard **Readme.md** for all newly-created projects using this framework
 - Propose a way to **manage credentials** inside all projects, without publishing any passwords on git, and without complexifying the deployement process with a list of passwords to enter
 - Implement a starting **.gitignore** file to make sure people don't unwillingly version `.swp`, `.csv`, `.dat`, `.log` or any suspecious other file extensions, or file in suspecious path like `./data/...` or `./tmp/...`
-- Propose a **git pre-commit hook, to automatically convert .ipynb to .py**, thus making sure only `.py` goes into production
+- Propose a **git pre-commit hook**, to :
+     - automatically **convert .ipynb to .py**, thus making sure only `.py` goes into production
+     - automatically **delete cell outputs in any .ipynb**, thus avoiding useless commit, and better protect privacy
 - Propose a system of **symlinked binaries** to easily deploy the project on any system
 
 
