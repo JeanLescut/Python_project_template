@@ -1,13 +1,20 @@
+# General folders (anywhere in the tree)
 .ipynb_checkpoints
 __pycache__
 
-bin/*
+# Root folders (just at the root of the project)
+bin/* . # Binary paths are system-dependent. Please follow bin_template instead
 log/*
 data/*
 tmp/*
 
+# File to ignore :
+nohup.out # Output of a nohup command.
+local.json # local configuration file, to me ignore
+
+# Extensions to ignore :
 *.log
-*.swp
+*.swp # .swp files created by VIM while editing and not saving
 *.csv
 *.dat
 *.data
@@ -15,7 +22,4 @@ tmp/*
 *.gz
 *.parquet
 *.orc
-*.pkl
-
-nohup.out
-local.json
+*.pkl # Pickle file (Python serializer)
