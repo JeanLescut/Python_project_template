@@ -15,6 +15,7 @@ tmp/*
 *.gz
 *.parquet
 *.orc
+*.pkl
 
 nohup.out
 local.json
