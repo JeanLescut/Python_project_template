@@ -40,7 +40,7 @@ def send_simple(from_email, to_email_list, subject, content):
     """
 
     # Send the mail
-    server = smtplib.SMTP("exp-shost-01")
+    server = smtplib.SMTP("shost.sea.corp.expecn.com")
     try:
         server.sendmail(FROM, TO, message)
         server.quit()
