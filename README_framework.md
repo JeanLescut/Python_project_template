@@ -18,7 +18,54 @@ cd ./Project # &#x1F534; TODO: PLEASE ADAPT
 
 ### 1.2 (If the project is using Python) Install Python Environment
 - All project (or group of projects) run on their own Conda environment. This allows to fix not only python version but also specific version for each python module, that could be different from one project to another. Thus, any change of the machine, on any other project can NOT affect the current project. To create an environment, follow precise instructions here :
-https://ewegithub.sb.karmalab.net/jlescutmuller/Dev_init_scripts/blob/master/01_Create_new_conda_env_and_kernel.sh
+
+#########################################################
+### Step 1 : Installing a new conda env :
+#########################################################
+
+# This create a conda env on the machine. Persistent at each reboot.
+# More info at : https://conda.io/docs/user-guide/tasks/manage-environments.html
+# 1) it is VISIBLE in '/opt/anaconda3/bin/conda env list'
+# 2) it is VISIBLE in 'ls -la /opt/anaconda3/envs' (because this has been launched from root)
+# 3) it is NOT visible in 'ls -la /usr/local/share/jupyter/kernels/'
+# 4) it is NOT visible in Jupyter interface
+# Note : if not done in root ;
+#    - the conda env will be installed in /home/{user}/.conda/env ...
+#    - the conda env will not be visible from a root session => unable to install it as a Jupyterhub kernel
+# Examples :
+sudo /opt/anaconda3/bin/conda  create -n python_2.7.14     python=2.7.14 ipykernel # (in Dev)
+sudo /opt/anaconda3/bin/conda  create -n python_3          python=3      ipykernel # (in Dev) Python 3 latest
+sudo /opt/miniconda3/bin/conda create -n python27_projectx python=2.7.14 ipykernel # (in Prod) Env of a project "ProjectX"
+sudo /opt/miniconda3/bin/conda create -n python36_projectx python=3.6.2  ipykernel # (in Prod) Env of a project "ProjectY"
+
+# Verification : You can verify that the new conda env has been created :
+/opt/anaconda3/bin/conda env list # (in Dev)
+/opt/miniconda3/bin/conda env list # (in Prod)
+
+
+#########################################################
+### Step 2 : Install this "conda env" as a kernel in Jupyterhub
+### WARNING : this step is NOT relevant in Int/Prod
+#########################################################
+
+# Install kernel : This will installed the CURRENTLY active conda env in /usr/loacl/share/jupyter/kernels
+# Source 1 : http://ipython.readthedocs.io/en/stable/install/kernel_install.html
+# You have to active the environment before you can launch this command
+# 1) it becomes visible in 'ls -la /usr/local/share/jupyter/kernels/'
+# 2) it becomes visible in Jupyter interface
+# Note : the '--name' has nothing to do with the name previously created. 
+#        This is the ipykernel name, that can be different than the conda env name
+#        But by convention, we set them up to be THE SAME.
+sudo /opt/anaconda3/envs/{env_name}/bin/python -m ipykernel install --name {same as conda env} --display-name "{displayed text in Jupyterhub}"
+
+
+#########################################################
+### DO NOT :
+#########################################################
+
+# Step 3 : Don't put '--user' as it would install the kernel only for the current user (root)
+# Step 3 : his is NOT working : /opt/anaconda3/bin/ipython kernel install --name python_2.7.14 --display-name "Python 2.7.14"
+
 
 - Install the dependencies of your project. Example :
 <pre><code>
