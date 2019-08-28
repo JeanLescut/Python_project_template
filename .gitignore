@@ -1,21 +1,36 @@
+# Note: do not comment an entry on the SAME line, as it smetimes makes git bug !
+
+#################################################
 # General folders (anywhere in the tree)
+#################################################
 .ipynb_checkpoints
 __pycache__
 
+##################################################
 # Root folders (just at the root of the project)
-bin/* . # Binary paths are system-dependent. Please follow bin_template instead
+##################################################
+# Binary paths are system-dependent : (Please follow bin_template instead)
+bin/*
 log/*
 data/*
 tmp/*
 
-# File to ignore :
-nohup.out # Any output of a nohup command.
-local.json # local configuration file
-.vscode # File created by Visual Studio Code (an IDE)
+#################################################
+# Specific file to ignore :
+#################################################
+ # Any output of a nohup command :
+nohup.out
+# local configuration file :
+local.json 
+# File created by Visual Studio Code (an IDE) :
+.vscode 
 
+#################################################
 # Extensions to ignore :
+#################################################
 *.log
-*.swp # .swp files created by VIM while editing and not saving
+# .swp files created by VIM while editing and not saving :
+*.swp 
 *.csv
 *.dat
 *.data
@@ -23,4 +38,5 @@ local.json # local configuration file
 *.gz
 *.parquet
 *.orc
-*.pkl # Pickle file (Python serializer)
+# Pickle file (Python serializer) :
+*.pkl 
