@@ -9,8 +9,9 @@ data/*
 tmp/*
 
 # File to ignore :
-nohup.out # Output of a nohup command.
-local.json # local configuration file, to me ignore
+nohup.out # Any output of a nohup command.
+local.json # local configuration file
+.vscode # File created by Visual Studio Code (an IDE)
 
 # Extensions to ignore :
 *.log
