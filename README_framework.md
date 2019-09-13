@@ -19,6 +19,7 @@ cd ./Project # &#x1F534; TODO: PLEASE ADAPT
 ### 1.2 (If the project is using Python) Install Python Environment
 - All project (or group of projects) run on their own Conda environment. This allows to fix not only python version but also specific version for each python module, that could be different from one project to another. Thus, any change of the machine, on any other project can NOT affect the current project. To create an environment, follow precise instructions here :
 
+<pre><code>
 #########################################################
 ### Step 1 : Installing a new conda env :
 #########################################################
@@ -65,7 +66,7 @@ sudo /opt/anaconda3/envs/{env_name}/bin/python -m ipykernel install --name {same
 
 # Step 3 : Don't put '--user' as it would install the kernel only for the current user (root)
 # Step 3 : his is NOT working : /opt/anaconda3/bin/ipython kernel install --name python_2.7.14 --display-name "Python 2.7.14"
-
+</code></pre>
 
 - Install the dependencies of your project. Example :
 <pre><code>
