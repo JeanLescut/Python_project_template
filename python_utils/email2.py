@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # In[ ]:
@@ -88,7 +88,7 @@ def send_html(from_email, to_emails, subject, content, image_attachments = {}):
         msgRoot.attach(msgImage)
 
     # Send the message via local SMTP server.
-    s = smtplib.SMTP("exp-shost-01")
+    s = smtplib.SMTP("shost.sea.corp.expecn.com")
     s.sendmail(from_email, to_emails, msgRoot.as_string())
     s.quit()
     

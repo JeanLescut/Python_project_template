@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # In[ ]:
@@ -26,8 +26,8 @@ def get_sql_conn(creds, server='CHCXSQLARMDM008', db='Pricing'):
     # Import in function to avoid useless dependecies for project that doesnt use SQL
     import pymssql
     return pymssql.connect(server, 
-                           creds['AD']['domain']+'\\'+creds['AD']['user'], 
-                           creds['AD']['pass'], 
+                           creds['ActiveDirectory']['domain']+'\\'+creds['ActiveDirectory']['user'], 
+                           creds['ActiveDirectory']['pass'], 
                            db, 
                            autocommit=True)
 
@@ -36,6 +36,7 @@ def get_sql_conn(creds, server='CHCXSQLARMDM008', db='Pricing'):
 
 
 def sql_query(query, creds, method='execute', server='CHCXSQLARMDM008', db='Pricing'):
+    assert(method in ['execute', 'pandas.read'])
     log.debug(f'SQL : About to launch query {query}')
     
     connection = get_sql_conn(creds, server, db)
